@@ -1,3 +1,36 @@
+<script setup>
+  import { ref } from 'vue'
+  import emailjs from 'emailjs-com'
+
+  const name = ref('')
+  const email = ref('')
+  const message = ref('')
+  const sent = ref(false)
+  const error = ref('')
+
+  function sendEmail() {
+    emailjs.send(
+      'service_l21uok8',      // Reemplaza por tu Service ID
+      'template_ny3n26d',     // Reemplaza por tu Template ID
+      {
+        from_name: name.value,
+        from_email: email.value,
+        message: message.value
+      },
+      'J_q-WlBVC0bbE1NxL'          // Reemplaza por tu User ID (public key)
+    )
+    .then(() => {
+      sent.value = true
+      error.value = ''
+      name.value = ''
+      email.value = ''
+      message.value = ''
+    })
+    .catch(() => {
+      error.value = 'Error al enviar el mensaje. Intenta de nuevo.'
+    })
+  }
+</script>
 <template>
   <header>
     <nav>
@@ -49,19 +82,18 @@
         <div class="project-card">
           <h3>App de Tareas</h3>
           <p>Aplicación desarrollada con Nest js, Angular y MySQL para gestionar tareas con autenticación.</p>
-          <a href="https://github.com/tuusuario/proyecto1" target="_blank">Ver código</a>
+          <a href="https://github.com/franmpdev/ToDoApp" target="_blank">Ver código</a>
         </div>
         <div class="project-card">
-          <!-- aqui imagen-->
+           aqui imagen
           <h3>Portfolio Animado</h3>
           <p>Portfolio interactivo con animaciones y efectos modernos usando Vue.</p>
-          <a href="https://github.com/tuusuario/proyecto2" target="_blank">Ver código</a>
+          <a href="https://github.com/franmpdev/my-portfolio" target="_blank">Ver código</a>
         </div>
         <div class="project-card">
-
           <h3>Gestión de peluquería canina</h3>
-          <p>Aplicación desarrollada con Nest js, Angular y MySQL para la gestión de citas, clientes y mascotas de una peluquería canina.</p>
-          <a href="https://github.com/tuusuario/proyecto3" target="_blank">Ver código</a>
+          <p>Proyecto colaborativo desarrollado con Nest js, Angular y MySQL para la gestión de citas, clientes y mascotas de una peluquería canina.</p>
+          <a href="https://github.com/Proyectos-Hugo/Proyecto_peluqueria" target="_blank">Ver código</a>
         </div>
       </div>
     </section>
@@ -94,11 +126,13 @@
     <!-- Contacto -->
     <section id="contact">
       <h2>Contacto</h2>
-      <form class="contact-form" @submit.prevent>
-        <input type="text" placeholder="Tu nombre" required />
-        <input type="email" placeholder="Tu email" required />
-        <textarea placeholder="Tu mensaje" required></textarea>
+      <form class="contact-form" @submit.prevent="sendEmail">
+        <input type="text" placeholder="Tu nombre" v-model="name" required />
+        <input type="email" placeholder="Tu email" v-model="email" required />
+        <textarea placeholder="Tu mensaje" v-model="message" required></textarea>
         <button type="submit">Enviar mensaje</button>
+        <p v-if="sent" style="color:green;">¡Mensaje enviado correctamente!</p>
+        <p v-if="error" style="color:red;">{{ error }}</p>
       </form>
     </section>
   </main>
