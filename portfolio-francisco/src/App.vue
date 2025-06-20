@@ -85,7 +85,6 @@
           <a href="https://github.com/franmpdev/ToDoApp" target="_blank">Ver código</a>
         </div>
         <div class="project-card">
-           aqui imagen
           <h3>Portfolio Animado</h3>
           <p>Portfolio interactivo con animaciones y efectos modernos usando Vue.</p>
           <a href="https://github.com/franmpdev/my-portfolio" target="_blank">Ver código</a>
@@ -120,6 +119,7 @@
         <span>Tailwind CSS</span>
         <span>Git & GitHub</span>
         <span>Docker</span>
+
       </div>
     </section>
 
