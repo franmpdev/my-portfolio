@@ -458,15 +458,17 @@ footer {
   header {
     padding: 1rem 0.5rem;
   }
+
   nav ul {
-    flex-direction: column;
+    flex-direction: row;
     gap: 1rem;
     align-items: center;
     background: rgba(255,255,255,0.95);
     border-radius: 16px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-    padding: 1rem 0;
+    padding: 1rem;
     margin: 0;
+    font-size: 0.5rem;
   }
   main {
     padding: 1rem;
@@ -505,5 +507,6 @@ footer {
   #hero h1 {
     font-size: 1.3rem;
   }
+
 }
 </style>
