@@ -42,7 +42,8 @@ Incluye una presentación personal, proyectos destacados, listado de skills y un
 
 ## 🌐 Demo
 
-> Puedes ver el portfolio en vivo aquí: [https://tu-dominio.com](https://tu-dominio.com)
+> Puedes ver el portfolio en vivo aquí:
+https://timely-gumdrop-3e506f.netlify.app/
 
 ---
 
